@@ -1,0 +1,23 @@
+# macOS system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# Python virtual environment (backend)
+backend/venv/
+
+# Python bytecode
+*.pyc
+__pycache__/
+
+# Backend environment variables
+backend/.env
+
+# Coverage reports
+coverage/
+*.cover
+*.coverage
