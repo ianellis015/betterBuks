@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './Pages/Dashboard';
+import Dashboard from './Pages/Dashboard.jsx';
 
 
 function App() {
