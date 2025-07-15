@@ -1,0 +1,10 @@
+.recentAnalysesContainer {
+    display: flex;
+    width: 85%;
+    margin: 3% auto; /* centers the div horizontally */
+    background-color: #ffffff;
+    padding: 3rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
