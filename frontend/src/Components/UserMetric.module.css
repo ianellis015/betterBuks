@@ -1,4 +1,4 @@
-.userMetricsContainer {
+/* .userMetricsContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,4 +11,23 @@
     padding: 2rem 5rem 2rem 5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+} */
+
+.userMetricsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3% auto;           /* centers the container horizontally */
+    width: 85%;                /* matches the searchbox width */
+}
+
+.metric {
+    background-color: #ffffff;
+    padding: 2rem 5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;                   /* optional: allows even spacing */
+    text-align: center;
 }
