@@ -1,9 +1,12 @@
 import React from 'react';
+import styles from './UserMetric.module.css';
 
 export default function UserMetrics() {
     return (
-        <div>
-            <h1> This is the user metrics section </h1>
+        <div className={styles.userMetricsContainer}>
+            <div className={styles.metric}></div>
+            <div className={styles.metric}></div>
+            <div className={styles.metric}></div>
         </div>
     )
 }
