@@ -9,7 +9,7 @@ export default function Dashboard() {
     return (
         <div className={styles.dashContainer}>
             <h1>BetterBuks</h1>
-            <p>Simplified DCF analysis for smarter investing. Get professional-grade insights without the complexity.</p>
+            <p>Simplified quantitative analysis for smarter investing. Get professional-grade insights without the complexity.</p>
             <Search />
             <UserMetrics />
             <RecentAnalyses />

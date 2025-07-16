@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import SearchIcon from "../assets/search-icon.svg";
 import ArrowIcon from "../assets/arrow-forward-icon.svg";
@@ -86,6 +87,15 @@ export default function Search() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+    // Navigate to the Stock Analysis Page
+
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        if (!query) return;
+        navigate(`/analyze/${query}`)
+    };
+
 
     return (
         <div className={styles.searchbox}>
@@ -121,8 +131,8 @@ export default function Search() {
                         )}
                     </div>
                     <button
-                        className={styles.analyzeButton} 
-                        onClick={handleSearch}
+                        className={styles.analyzeButton}
+                        onClick={handleNavigate}
                     >
                         Analyze
                         <img src={ArrowIcon} className={styles.arrow} />
