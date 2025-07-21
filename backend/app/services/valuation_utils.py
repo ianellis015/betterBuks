@@ -22,7 +22,8 @@ def full_stock_analysis(ticker: str):
         growth_rate=metrics['cagr'],
         discount_rate=metrics['discount_rate'],
         terminal_growth=metrics['terminal_growth'],
-        shares_outstanding=metrics['shares_outstanding']
+        shares_outstanding=metrics['shares_outstanding'],
+        current_price=metrics['current_price']
     )
 
     # Final structured result
@@ -119,7 +120,7 @@ def calculate_cagr(financials):
         return None
 
 
-def run_monte_carlo_simulation(last_year_fcf, growth_rate, discount_rate, terminal_growth, shares_outstanding):
+def run_monte_carlo_simulation(last_year_fcf, growth_rate, discount_rate, terminal_growth, shares_outstanding, current_price):
     """
     Runs a Monte Carlo Discounted Cash Flow (DCF) simulation.
     Returns key statistical percentiles and averages for intrinsic value.
@@ -154,10 +155,18 @@ def run_monte_carlo_simulation(last_year_fcf, growth_rate, discount_rate, termin
         results.append(per_share_value)
 
     results = np.array(results)
+    mean_intrinsic_value = results.mean()
+    projected_return = ((mean_intrinsic_value - current_price) / current_price) * 100
 
+    percentile_5 = float(np.percentile(results, 5))
+    percentile_95 = float(np.percentile(results, 95))
+    confidence_interval = percentile_95 - percentile_5
+    
     return {
-        "mean_intrinsic_value": float(results.mean()),
+        "mean_intrinsic_value": float(mean_intrinsic_value),
         "median_intrinsic_value": float(np.median(results)),
-        "percentile_5": float(np.percentile(results, 5)),
-        "percentile_95": float(np.percentile(results, 95))
+        "percentile_5": percentile_5,
+        "percentile_95": percentile_95,
+        "projected_return_percent": float(projected_return),
+        "confidence_interval": confidence_interval
     }
