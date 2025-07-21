@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import StockOverview from '../Components/StockOverview.jsx';
 import Recommendation from '../Components/Recommendation.jsx';
+import styles from './Analysis.module.css';
 
 export default function Analysis() {
     const { ticker } = useParams();
@@ -28,7 +29,7 @@ export default function Analysis() {
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
+        <div className={styles.analysisBody}>
             <h1>Stock Analysis</h1>
             <p>Simplified DCF analysis for smarter investing</p>
             <StockOverview ticker={ticker} data={data} />
