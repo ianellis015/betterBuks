@@ -5,3 +5,13 @@
 .analysisBody h1 {
     margin: 0;
 }
+
+.metricContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 24px; /* space between the two components */ 
+}
+
+.metricContainer > * {
+    flex: 1;
+}

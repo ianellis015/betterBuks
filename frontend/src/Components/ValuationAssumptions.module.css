@@ -1,0 +1,60 @@
+.valAssumptionsContainer {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin-top: 24px;
+}
+
+.header {
+    align-items: center;
+}
+
+.calculatorIcon {
+    margin-right: 10px;
+}
+
+.subheading {
+    color: #707070;
+}
+
+.variableContainer {
+    background-color: rgb(249 250 251);
+    border: #ccc;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.variableContainer p {
+    margin-top: 15px;
+    font-weight:700;
+    font-size: 18px;
+}
+.adjustButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.adjustButton {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.adjustButton:hover {
+    background-color: rgb(249 250 251);
+}
