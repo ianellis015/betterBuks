@@ -4,8 +4,6 @@ import styles from './FinancialHealth.module.css';
 export default function FinancialHeath({ data }) {
 
     const {
-        company_name,
-        industry,
         metrics,
         monte_carlo_results
      } = data;
