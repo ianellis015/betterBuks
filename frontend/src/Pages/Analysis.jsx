@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import StockOverview from '../Components/StockOverview.jsx';
 import Recommendation from '../Components/Recommendation.jsx';
+import FinancialHealth from '../Components/FinancialHealth.jsx';
 import styles from './Analysis.module.css';
 
 export default function Analysis() {
@@ -34,6 +35,7 @@ export default function Analysis() {
             <p>Simplified DCF analysis for smarter investing</p>
             <StockOverview ticker={ticker} data={data} />
             <Recommendation data={data} />
+            <FinancialHealth data={data} />
         </div>
     );
 }

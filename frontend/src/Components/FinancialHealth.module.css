@@ -1,0 +1,52 @@
+.financialHealthContainer {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin-top: 24px;
+}
+
+.header {
+    align-items: center;
+}
+
+.metricIcon {
+    margin-right: 10px;
+}
+
+.subheading {
+    color: #707070;
+}
+
+.freeCashFlowContainer,
+.epsContainer,
+.peRatioContainer,
+.pegRatioContainer,
+.DebtToEquityContainer,
+.evEbitdaContainer {
+    background-color: rgb(249 250 251);
+    border: #ccc;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.freeCashFlowContainer p,
+.epsContainer p,
+.peRatioContainer p,
+.pegRatioContainer p,
+.DebtToEquityContainer p,
+.evEbitdaContainer p {
+    margin-top: 15px;
+    font-weight:700;
+    font-size: 18px;
+    
+}

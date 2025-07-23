@@ -101,7 +101,7 @@ def extract_metrics(info, cashflow, financials):
         "pe_ratio": pe_ratio,
         "peg_ratio": peg_ratio,
         "debt_to_equity": info.get("debtToEquity"),
-        "ev/ebitda": info.get("enterpriseToEbitda")
+        "ev_ebitda": info.get("enterpriseToEbitda")
     }
 
 
