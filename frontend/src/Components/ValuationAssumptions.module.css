@@ -36,8 +36,9 @@
 
 .variableContainer p {
     margin-top: 15px;
-    font-weight:700;
+    font-weight: 900;
     font-size: 18px;
+    color: rgb(37 99 235);
 }
 .adjustButtonContainer {
     display: flex;
@@ -57,4 +58,38 @@
 
 .adjustButton:hover {
     background-color: rgb(249 250 251);
+}
+
+.slider {
+  width: 100%;
+  margin-top: 10px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgb(37 99 235);
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s;
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgb(37 99 235);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
