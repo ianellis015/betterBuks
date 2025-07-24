@@ -38,7 +38,7 @@ export default function Analysis() {
             <Recommendation data={data} />
             <div className={styles.metricContainer}>
                 <FinancialHealth data={data} />
-                <ValuationAssumptions data={data} />
+                <ValuationAssumptions data={data} setData={setData} />
             </div>
         </div>
     );
