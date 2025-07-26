@@ -20,6 +20,11 @@
     color: #707070;
 }
 
+.metricContainer {
+    height: 300px;
+    overflow-y: auto;
+}
+
 .freeCashFlowContainer,
 .epsContainer,
 .peRatioContainer,
