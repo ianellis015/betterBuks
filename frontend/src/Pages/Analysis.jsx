@@ -5,6 +5,7 @@ import StockOverview from '../Components/StockOverview.jsx';
 import Recommendation from '../Components/Recommendation.jsx';
 import FinancialHealth from '../Components/FinancialHealth.jsx';
 import ValuationAssumptions from '../Components/ValuationAssumptions.jsx';
+import QuickSearch from '../Components/QuickSearch.jsx';
 import styles from './Analysis.module.css';
 
 export default function Analysis() {
@@ -32,8 +33,13 @@ export default function Analysis() {
 
     return (
         <div className={styles.analysisBody}>
-            <h1>Stock Analysis</h1>
-            <p>Simplified DCF analysis for smarter investing</p>
+            <div className={styles.headingAndSearchContainer}>
+                <div className={styles.headingContainer}>
+                    <h1>Stock Analysis</h1>
+                    <p>Simplified DCF analysis for smarter investing</p>
+                </div>
+            <QuickSearch />
+            </div>
             <StockOverview ticker={ticker} data={data} />
             <Recommendation data={data} />
             <div className={styles.metricContainer}>

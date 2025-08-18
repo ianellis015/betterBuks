@@ -12,6 +12,16 @@
     gap: 24px; /* space between the two components */ 
 }
 
+.headingAndSearchContainer {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.headingContainer {
+    display: flex;
+    flex-direction: column;    
+}
+
 .metricContainer > * {
     flex: 1;
 }

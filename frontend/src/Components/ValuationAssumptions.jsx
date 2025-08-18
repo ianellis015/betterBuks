@@ -1,18 +1,31 @@
+// ValuationAssumptions.jsx
 import React from 'react';
 import axios from 'axios';
 import calculatorIcon from '../assets/calculator-icon.svg';
 import styles from './ValuationAssumptions.module.css';
 
 export default function ValuationAssumptions({ data, setData }) {
-  const { metrics } = data;
+  const { metrics } = data ?? {};
 
   const [isEditing, setIsEditing] = React.useState(false);
 
-  const [editableMetrics, setEditableMetrics] = React.useState({
-    cagr: metrics.cagr,
-    terminal_growth: metrics.terminal_growth,
-    discount_rate: metrics.discount_rate,
-  });
+  // Initialize safely (handles first render before data arrives)
+  const [editableMetrics, setEditableMetrics] = React.useState(() => ({
+    cagr: metrics?.cagr ?? 0,
+    terminal_growth: metrics?.terminal_growth ?? 0,
+    discount_rate: metrics?.discount_rate ?? 0,
+  }));
+
+  // 🔁 Re-sync local state whenever you navigate to a new ticker (or metrics change)
+  React.useEffect(() => {
+    if (!data?.metrics) return;
+    setEditableMetrics({
+      cagr: data.metrics.cagr,
+      terminal_growth: data.metrics.terminal_growth,
+      discount_rate: data.metrics.discount_rate,
+    });
+    setIsEditing(false); // exit edit mode on symbol change
+  }, [data?.ticker]); 
 
   const convertToPercentage = (value) => {
     if (value === undefined || value === null) return '';
@@ -26,7 +39,7 @@ export default function ValuationAssumptions({ data, setData }) {
         terminal_growth: editableMetrics.terminal_growth,
         discount_rate: editableMetrics.discount_rate,
       });
-      setData(res.data.data);
+      setData(res.data.data); // parent data updates; effect above re-syncs local state
     } catch (err) {
       console.error('Failed to rerun simulation', err);
     }
@@ -39,18 +52,23 @@ export default function ValuationAssumptions({ data, setData }) {
         type="range"
         min={-100}
         max={100}
-        value={editableMetrics[key] * 100}
+        value={
+          Number.isFinite(editableMetrics[key]) ? editableMetrics[key] * 100 : 0
+        }
         onChange={(e) =>
-          setEditableMetrics({
-            ...editableMetrics,
+          setEditableMetrics((prev) => ({
+            ...prev,
             [key]: parseFloat(e.target.value) / 100,
-          })
+          }))
         }
         className={styles.slider}
       />
       <p>{convertToPercentage(editableMetrics[key])}</p>
     </div>
   );
+
+  // Guard early if data isn’t ready yet (prevents undefined access during first render)
+  if (!data?.metrics) return null;
 
   return (
     <div className={styles.valAssumptionsContainer}>
